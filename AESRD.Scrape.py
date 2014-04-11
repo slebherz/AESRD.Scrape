@@ -97,7 +97,7 @@ input = [
         ('Three Isle Lake','05BF824')])]
 
 today = datetime.date.today().isoformat()
-log = "The following data could not be retrieved:\n"
+log = 'The following data could not be retrieved:\n'
 
 # Process each data category.
 for category, url, sites in input:
@@ -111,14 +111,14 @@ for category, url, sites in input:
         csv_path = str.format('{0}/{1} ; {2} ; {3}.csv', 
             category, today, id, name)
         if urllib.urlopen(site_url).getcode() == 404:
-            log += str.format("{0} ({1})\n", site_url, name)
+            log += str.format('{0} ({1})\n', site_url, name)
         else:
             print csv_path
             urllib.urlretrieve(site_url, csv_path)
             
 # Ensure the log's output directory exists.
-if not os.path.exists("logs"):
-    os.makedirs("logs")
+if not os.path.exists('logs'):
+    os.makedirs('logs')
 # Write the log
-with open(str.format("logs/{0}.txt", today), "w") as logF:
+with open(str.format('logs/{0} ; scrape.txt', today), 'w') as logF:
     logF.write(log)
