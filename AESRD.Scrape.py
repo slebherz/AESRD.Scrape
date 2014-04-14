@@ -7,7 +7,7 @@ import urllib
 import datetime
 
 # Declaration of each data category, url, and list of sites for streamflow,
-# precipitation, and snowpack.
+# precipitation, snowpack, and reservoir levels.
 input = [
     ('flow', 'http://www.environment.alberta.ca/apps/Basins/data/text/river/',
         [('Bearspaw Diversion','05BH911'),
@@ -94,7 +94,21 @@ input = [
         ('Skoki Lodge','05CA805'),
         ('South Racehorse Creek','05AA817'),
         ('Sunshine Village','05BB803'),
-        ('Three Isle Lake','05BF824')])]
+        ('Three Isle Lake','05BF824')]),
+        
+    ('lake_level', 'http://www.environment.alberta.ca/apps/Basins/data/text/lake/',
+        [('Barrier Lake near Seebe','05BF024'),
+        ('Bassano Forebay','05BM907'),
+        ('Bearspaw Reservoir near Calgary','05BH010'),
+        ('Cascade Reservoir - Tau','TAU-002'),
+        ('Chestermere Lake at South Outlet','05BM904'),
+        ('Ghost Lake near Cochrane','05BE005'),
+        ('Glenmore Reservoir at Calgary','05BJ008'),
+        ('Horseshoe Forebay - Tau','TAU-004'),
+        ('Lake Newell','05BN901'),
+        ('Lower Kananaskis Lake','05BF009'),
+        ('Spray Reservoir at Three Sisters Dam','05BC006'),
+        ('Upper Kananaskis Lake','05BF005')])]
 
 today = datetime.date.today().isoformat()
 log = 'The following data could not be retrieved:\n'
